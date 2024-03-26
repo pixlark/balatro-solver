@@ -4,3 +4,5 @@ target/
 # vscode
 *.code-workspace
 
+# cargo-flamegraph
+flamegraph.svg

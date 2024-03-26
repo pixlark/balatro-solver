@@ -1,0 +1,82 @@
+[workspace]
+resolver = "2"
+members = ["solver-cli", "solver-core"]
+
+[workspace.lints.rust]
+# Uncomment when actively developing to prevent rust-analyzer from filling
+# your world with yellow squiggly lines just because you're not using a
+# variable yet. See more of these for clippy below.
+dead_code = "allow"
+unused_imports = "allow"
+unused_variables = "allow"
+
+[workspace.lints.clippy]
+# Uncomment when actively developing (see above)
+missing_errors_doc = "allow"
+
+## Warning groups
+correctness = "deny"
+cargo = "warn"
+complexity = "warn"
+pedantic = "warn"
+suspicious = "warn"
+perf = "warn"
+style = "warn"
+
+## restriction lints
+# Always use `Rc::clone`, `Arc::clone`, etc rather than `.clone()`
+clone_on_ref_ptr = "warn"
+# Never write an empty struct like `Struct {}`, always use simply `Struct;`
+empty_structs_with_brackets = "warn"
+# Never write an enum variant like `Variant()`, always use simply `Variant`.
+#   (this will be available in 1.77.0)
+# empty_enum_variants_with_brackets = "warn"
+# Don't use `std::process::exit`, either `panic!` or return up to `main` normally.
+exit = "warn"
+# Don't allow infinite loops unless the function is explicitly marked as not returning
+infinite_loop = "warn"
+# This one's basically just: don't write confusing spaghetti
+mixed_read_write_in_expression = "warn"
+# Only use self-named module style, never `mod.rs` style
+mod_module_files = "warn"
+# Don't split across multiple `impl`s unnecessarily
+multiple_inherent_impl = "warn"
+# Use one `unsafe` block per `unsafe` operation (see `undocumented_unsafe_blocks`)
+multiple_unsafe_ops_per_block = "warn"
+# Always use `pub(foo)` instead of `pub(in foo)`
+pub_without_shorthand = "warn"
+# Avoid using `Rc<String>` or similar when you could just use `Rc<str>`
+rc_buffer = "warn"
+# Never use `Rc<Mutex<T>>`, there's just no point
+rc_mutex = "warn"
+# Avoid redundant type annotations -- just use the rust-analyzer lens feature
+redundant_type_annotations = "warn"
+# Dont use the `...` pattern matching feature when it's not necessary
+rest_pat_in_fully_bound_structs = "warn"
+# Prefer `unsafe { f(x) };` over `unsafe { f(x); }`
+semicolon_inside_block = "warn"
+# Use `"foo".to_owned()` instead of `"foo".to_string()`
+str_to_string = "warn"
+# Prefer `matches!` over an unnecessary `.chars()` iterator
+string_lit_chars_any = "warn"
+# Don't use `.to_string()` on a `String` -- just use `.clone()`
+string_to_string = "warn"
+# Tests should always be inside a tests module
+tests_outside_test_module = "warn"
+# Document every `unsafe` block with a SAFETY comment
+undocumented_unsafe_blocks = "warn"
+# SAFETY comments should only be used for... safety
+unnecessary_safety_comment = "warn"
+unnecessary_safety_doc = "warn"
+# Prefer `512_i32` over `512i32`
+unseparated_literal_suffix = "warn"
+# Always use the `Self` type when possible
+use_self = "warn"
+
+## Global lint exceptions
+# Don't force me to mark everything with #[must_use]
+must_use_candidate = "allow"
+# This might get re-enabled when things are stable
+missing_panics_doc = "allow"
+# This often reduces clarity
+bool_to_int_with_if = "allow"

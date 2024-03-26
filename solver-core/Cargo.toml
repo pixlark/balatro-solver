@@ -1,0 +1,27 @@
+[package]
+name = "solver-core"
+version = "0.1.0"
+edition = "2021"
+description = "Core solver logic"
+license = "MIT"
+repository = "https://github.com/pixlark/balatro-solver.git"
+readme = "README.md"
+keywords = ["balatro", "simulation"]
+categories = ["simulation"]
+
+[lints]
+workspace = true
+
+[dependencies]
+approx = "0.5.1"
+bitflags = "2.5.0"
+heapless = "0.8.0"
+itertools = "0.12.1"
+lazy_static = "1.4.0"
+rand = { version = "0.8.5", features = ["small_rng"] }
+slab = "0.4.9"
+static_assertions = "1.1.0"
+strum = { version = "0.26.2", features = ["strum_macros"] }
+strum_macros = "0.26.2"
+thiserror = "1.0.58"
+tracing = "0.1.40"

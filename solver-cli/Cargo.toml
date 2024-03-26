@@ -1,0 +1,22 @@
+[package]
+name = "solver-cli"
+version = "0.1.0"
+edition = "2021"
+description = "CLI interface for interacting with the solver"
+license = "MIT"
+repository = "https://github.com/pixlark/balatro-solver.git"
+readme = "README.md"
+keywords = ["balatro", "simulation"]
+categories = ["simulation"]
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow = "1.0.81"
+clap = { version = "4.5.4", features = ["derive"] }
+itertools = "0.12.1"
+rand = { version = "0.8.5", features = ["small_rng"] }
+rayon = "1.10.0"
+solver-core = { version = "0.1.0", path = "../solver-core" }
+strum = "0.26.2"
